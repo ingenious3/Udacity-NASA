@@ -6,6 +6,9 @@
         <variable
             name="viewModel"
             type="com.udacity.asteroidradar.main.MainViewModel" />
+        <variable
+            name="pictureOfDay"
+            type="com.udacity.asteroidradar.model.PictureOfDay" />
 
     </data>
 
@@ -28,6 +31,8 @@
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
+                app:mainImage="@{pictureOfDay.url}"
+                android:contentDescription="@{viewModel.picOfTheDayLiveData.title}"
                 app:srcCompat="@drawable/placeholder_picture_of_day"/>
 
             <TextView
@@ -61,6 +66,7 @@
             android:layout_height="wrap_content"
             android:indeterminate="true"
             android:visibility="gone"
+            app:progressBar="@{viewModel.status}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"

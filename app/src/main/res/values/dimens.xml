@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="dimen0dp">0dp</dimen>
+    <dimen name="dimen4dp">4dp</dimen>
+    <dimen name="dimen8dp">8dp</dimen>
+    <dimen name="dimen16dp">16dp</dimen>
+    <dimen name="dimen24dp">24dp</dimen>
+    <dimen name="dimen48dp">48dp</dimen>
+    <dimen name="dimen400dp">400dp</dimen>
+
+    <dimen name="padding16dp">16dp</dimen>
+
+    <dimen name="text_medium">16sp</dimen>
+    <dimen name="text_medium_large">20sp</dimen>
+    <dimen name="text_large">24sp</dimen>
+
+</resources>

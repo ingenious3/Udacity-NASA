@@ -4,10 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="asteroid"
-            type="com.udacity.asteroidradar.Asteroid" />
+            type="com.udacity.asteroidradar.model.Asteroid" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -24,7 +23,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@drawable/asteroid_safe" />
+            tools:srcCompat="@drawable/asteroid_safe"
+            android:contentDescription="@string/image_asteroid"/>
 
         <ScrollView
             android:layout_width="0dp"
@@ -83,7 +83,7 @@
                             android:id="@+id/absolute_magnitude"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
+                            android:layout_marginTop="@dimen/dimen4dp"
                             android:textColor="@color/default_text_color"
                             app:astronomicalUnitText="@{asteroid.absoluteMagnitude}"
                             tools:text="25.126 au" />
@@ -93,8 +93,9 @@
                         android:id="@+id/help_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="16dp"
-                        app:srcCompat="@drawable/ic_help_circle" />
+                        android:padding="@dimen/padding16dp"
+                        app:srcCompat="@drawable/ic_help_circle"
+                        android:contentDescription="@string/help"/>
 
                 </LinearLayout>
 

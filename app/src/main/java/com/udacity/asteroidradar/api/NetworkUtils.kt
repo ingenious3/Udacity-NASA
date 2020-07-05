@@ -1,16 +1,16 @@
 package com.udacity.asteroidradar.api
 
-import com.udacity.asteroidradar.Asteroid
-import com.udacity.asteroidradar.Constants
+import com.udacity.asteroidradar.constant.Constants
+import com.udacity.asteroidradar.db.AppDbEntity
 import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
-fun parseAsteroidsJsonResult(jsonResult: JSONObject): ArrayList<Asteroid> {
+fun parseAsteroidsJsonResult(jsonResult: JSONObject): ArrayList<AppDbEntity> {
     val nearEarthObjectsJson = jsonResult.getJSONObject("near_earth_objects")
 
-    val asteroidList = ArrayList<Asteroid>()
+    val asteroidList = ArrayList<AppDbEntity>()
 
     val nextSevenDaysFormattedDates = getNextSevenDaysFormattedDates()
     for (formattedDate in nextSevenDaysFormattedDates) {
@@ -32,9 +32,13 @@ fun parseAsteroidsJsonResult(jsonResult: JSONObject): ArrayList<Asteroid> {
                 .getDouble("astronomical")
             val isPotentiallyHazardous = asteroidJson
                 .getBoolean("is_potentially_hazardous_asteroid")
+            val closeApproachDateMillis = closeApproachData
+                .getLong("epoch_date_close_approach")
 
-            val asteroid = Asteroid(id, codename, formattedDate, absoluteMagnitude,
-                estimatedDiameter, relativeVelocity, distanceFromEarth, isPotentiallyHazardous)
+            val asteroid = AppDbEntity(
+                id, codename, formattedDate, absoluteMagnitude, estimatedDiameter,
+                relativeVelocity, distanceFromEarth, isPotentiallyHazardous, closeApproachDateMillis
+            )
             asteroidList.add(asteroid)
         }
     }
